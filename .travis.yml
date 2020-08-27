@@ -4,12 +4,13 @@ python:
     - 3.7
 
 cache:
-  - pip install
-  
-install:
-  - pip test
-  - pip run build
-  
+  apt: true
+  directories:
+  - $HOME/.cache/pip
+  - $HOME/.ccache
+
+install: source build_tools/travis/install.sh
+
 deploy:
     provider: pages
     skip-cleanup: true
